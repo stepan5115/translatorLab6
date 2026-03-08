@@ -54,4 +54,13 @@ public:
     std::pair<Type, std::any> evaluate(Context& context) override;
 };
 
+class  UnaryExpr : public Expression {
+    std::unique_ptr<Expression> exp;
+    char op;
+public:
+    UnaryExpr(std::unique_ptr<Expression> exp, char o)
+        : exp(std::move(exp)), op(o) {}
+    std::pair<Type, std::any> evaluate(Context& context) override;
+};
+
 #endif

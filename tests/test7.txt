@@ -15,7 +15,6 @@ int one() {
 empty();
 one();
 
-// Вызов с аргументами
 void dummy() {
     return;
 }

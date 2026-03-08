@@ -43,6 +43,24 @@ std::pair<Type, std::any> BinaryExpression::evaluate(Context& context) {
             return {INT, l % r};
 
         default:
-            throw std::runtime_error("Неизвестный оператор");
+            throw std::runtime_error(std::string("Неизвестный оператор ") + op);
+    }
+}
+
+std::pair<Type, std::any> UnaryExpr::evaluate(Context& context) {
+    auto expValue = exp->evaluate(context);
+    if (expValue.first != INT) {
+        throw std::runtime_error(
+            std::string("Унарный оператор ") + op +
+            " применим только к переменным типа INT");
+    }
+    int value = std::any_cast<int>(expValue.second);
+    switch (op) {
+        case '+':
+            return {INT, value};
+        case '-':
+            return {INT, -value};
+        default:
+            throw std::runtime_error(std::string("Неизвестный оператор ") + op);
     }
 }

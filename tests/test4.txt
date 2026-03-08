@@ -3,21 +3,21 @@ void empty() {}
 
 // Различные типы
 int getValue() {
-    return 42;
+    return -42;
 }
 
-void process(int a int b int c) {
+void process(int a, int b, int c) {
     // Пустое тело
 }
 
-int compute(int x int y) {
+int compute(int x, int y) {
     // Сложное выражение со всеми операторами
     return (x + y) * (x - y) / 2 + 100 % 3;
 }
 
 int nested(int n) {
     // Вложенные вызовы и сложные выражения
-    return compute(n + 5 n * 2) * square(n);
+    return compute(n + 5, n * 2) * square(n);
 }
 
 int square(int n) {
@@ -30,15 +30,17 @@ int main() {
     empty();
     
     // Вызовы с разным количеством аргументов
-    getValue();
-    process(1 2 3);
+    print(abs(getValue()));
+    process(1, 2, 3);
     
     // Вычисления
-    compute(10 5);
-    nested(7);
+    print(compute(10, 5));
+    print(nested(7));
     
     // Цепочка вызовов
-    square(compute(3 4));
+    print(fact(square(compute(3, 4))));
     
     return 0;
 }
+
+main();

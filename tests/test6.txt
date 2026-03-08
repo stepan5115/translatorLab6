@@ -1,34 +1,31 @@
 // Математические функции
-int add(int a int b) {
+int add(int a, int b) {
     return a + b;
 }
 
-int sub(int a int b) {
+int sub(int a, int b) {
     return a - b;
 }
 
-int mul(int a int b) {
+int mul(int a, int b) {
     return a * b;
 }
 
-int div(int a int b) {
+int div(int a, int b) {
     return a / b;
 }
 
-int mod(int a int b) {
+int mod(int a, int b) {
     return a % b;
 }
 
 // Составные операции
-int calculate(int a int b int c) {
-    return add(a b) * sub(c a) + mul(b c) - div(a b);
+int calculate(int a, int b, int c) {
+    return add(a, b) * sub(c, a) + mul(b, c) - div(a, b);
 }
 
-int complexCalc(int x int y int z) {
-    int result1 = add(x y);
-    int result2 = mul(result1 z);
-    int result3 = sub(result2 div(y 2));
-    return result3;
+int complexCalc(int x, int y, int z) {
+    return sub(mul(add(x, y), z), div(y, 2));
 }
 
 // Функция без возврата значения
@@ -39,30 +36,33 @@ void printResult(int val) {
 }
 
 void printValue(int v) {
+    print(v);
     return;
 }
 
 // Основная программа
 int program() {
     // Простые вычисления
-    add(5 3);
-    sub(10 4);
-    mul(6 7);
-    div(15 3);
-    mod(17 5);
+    print(add(5, 3));
+    print(sub(10, 4));
+    print(mul(6, 7));
+    print(div(15, 3));
+    print(mod(17, 5));
     
     // Сложные выражения
-    calculate(1 2 3);
-    complexCalc(4 5 6);
+    print(calculate(1, 2, 3));
+    print(complexCalc(4, 5, 6));
     
     // Цепочка вызовов
-    mul(add(2 3) sub(10 4));
-    div(complexCalc(1 2 3) add(5 5));
+    print(mul(add(2, 3), sub(10, 4)));
+    print(div(complexCalc(1, 2, 3), add(5, 5)));
     
     // Вызов функций без возврата значения
     printResult(42);
     printValue(100);
     
     // Возврат результата
-    return add(calculate(1 2 3) complexCalc(4 5 6));
+    return add(calculate(1, 2, 3), complexCalc(4, 5, 6));
 }
+
+print(program());

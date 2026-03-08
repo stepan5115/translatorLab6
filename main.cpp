@@ -76,6 +76,10 @@ private:
             auto right = buildExpression(binCtx->right);
             char op = binCtx->op->getText()[0];
             return std::make_unique<BinaryExpression>(std::move(left), std::move(right), op);
+        } else if (auto unCtx = dynamic_cast<Lab6GrammarParser::UnaryExprContext*>(ctx)) {
+            auto exp = buildExpression(unCtx->expression());
+            char op = unCtx->op->getText()[0];
+            return std::make_unique<UnaryExpr>(std::move(exp), op);
         } else if (auto parenCtx = dynamic_cast<Lab6GrammarParser::ParenExprContext*>(ctx)) {
             return buildExpression(parenCtx->inner);
         }

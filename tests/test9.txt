@@ -1,40 +1,20 @@
 // Функция для демонстрации
 int doubleValue(int n) {
-    print("Удваиваю число:");
     print(n);
     return n * 2;
 }
 
 int square(int n) {
-    print("Возвожу в квадрат:");
     print(n);
     return n * n;
 }
 
-void printHeader() {
-    print("=================");
-    print("ТЕСТОВАЯ ПРОГРАММА");
-    print("=================");
-    return;
-}
-
-void printFooter() {
-    print("=================");
-    print("КОНЕЦ ТЕСТА");
-    print("=================");
-    return;
-}
-
-int main() {
-    printHeader();
+int main(int i) {
     
     // Простой вывод
-    print("1. Простой вывод:");
-    print("Hello");
     print(123);
     
     // Вывод выражений
-    print("\n2. Вывод выражений:");
     print(10 + 20);
     print(50 - 15);
     print(6 * 7);
@@ -42,31 +22,25 @@ int main() {
     print(17 % 5);
     
     // Вызов функций с print внутри
-    print("\n3. Вызов функций:");
     doubleValue(5);
     square(4);
     
     // Вложенные вызовы с print
-    print("\n4. Вложенные вызовы:");
     print(doubleValue(3));
     print(square(doubleValue(2)));
     
     // Сложные выражения
-    print("\n5. Сложные выражения:");
     print(doubleValue(5) + square(3) * 2);
     print((doubleValue(2) + square(3)) / 2);
     
     // Массовый вывод
-    print("\n6. Массовый вывод:");
-    int i = 1;
     print(i);
     print(i + 1);
     print(i + 2);
     print(i + 3);
     print(i + 4);
     
-    printFooter();
     return 0;
 }
 
-main();
+main(1);

@@ -1,5 +1,5 @@
 int calculate(int x, int y) {
-    return x + y * 2 - 5;
+    return x + y * 2 - ----5;
 }
 
 int complex(int a, int b, int c) {
@@ -11,7 +11,10 @@ int main() {
     complex(5, 15, 25);
     
     // Вложенные вызовы
-    calculate(complex(1, 2, 3), 10);
+    print(complex(1, 2, 3));
+    print(calculate(complex(1, 2, 3), 10));
     
-    return;
+    return 0;
 }
+
+main();

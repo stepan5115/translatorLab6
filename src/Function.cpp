@@ -63,17 +63,16 @@ std::pair<Type, std::any> Function::execute(Context& context,
 
     executeBody(context);
     auto result = handleReturn(context);
-    bool hasReturn = returnStmt != nullptr;
 
     context.popScope();
     if (returnType == VOID) {
-        if (hasReturn && result.first != VOID) {
+        if (result.first != VOID) {
             throw std::runtime_error("Функция '" + functionName + "' объявлена как void, но вернула значение");
         }
         return {VOID, {}};
     } else {
-        if (!hasReturn) {
-            throw std::runtime_error("Функция '" + functionName + "' должна вернуть значение, но return отсутствует");
+        if (result.first == VOID) {
+            throw std::runtime_error("Функция '" + functionName + "' должна вернуть значение, но ничего не возвращает");
         }
         if (result.first != INT) {
             throw std::runtime_error("Функция '" + functionName + "' должна вернуть int");

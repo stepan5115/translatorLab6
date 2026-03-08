@@ -48,11 +48,13 @@ argumentList
     ;
 
 expression
-    : varName=ID                            #VarExpr
-    | number=NUMBER                          #NumberExpr
+    : '(' inner=expression ')'                #ParenExpr
+    | op=('+' | '-') expr=expression          #UnaryExpr
+    | left=expression op=('*' | '/' | '%') right=expression  #BinaryExpr
+    | left=expression op=('+' | '-') right=expression  #BinaryExpr
     | call=functionCall                      #CallExpr
-    | left=expression op=('+' | '-' | '*' | '/' | '%') right=expression  #BinaryExpr
-    | '(' inner=expression ')'                #ParenExpr
+    | number=NUMBER                           #NumberExpr
+    | varName=ID                              #VarExpr
     ;
 
 // Терминалы
