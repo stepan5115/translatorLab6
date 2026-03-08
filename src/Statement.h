@@ -8,8 +8,10 @@
 #include <any>
 #include <stdexcept>
 #include "Expression.h"
-#include "Context.h"
-#include "ReturnStatement.h"
+
+class Context;
+class Expression;
+class Function;
 
 class Function;
 

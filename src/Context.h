@@ -10,6 +10,7 @@
 #include <stack>
 #include <stdexcept>
 #include "Parameter.h"
+#include "Function.h"
 
 class Function;
 

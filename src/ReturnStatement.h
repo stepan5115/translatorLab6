@@ -3,8 +3,11 @@
 
 #include <any>
 #include <memory>
+#include "Parameter.h"
 #include "Expression.h"
-#include "Context.h"
+
+class Context;
+class Expression;
 
 class ReturnStatement {
 private:
@@ -14,13 +17,7 @@ public:
     ReturnStatement() : returnValue(nullptr) {}
     ReturnStatement(std::unique_ptr<Expression> expr) : returnValue(std::move(expr)) {}
     
-    std::pair<Type, std::any> evaluate(Context& context) {
-        if (returnValue) {
-            return returnValue->evaluate(context);
-        } else {
-            return {VOID, {}};
-        }
-    }
+    std::pair<Type, std::any> evaluate(Context& context);
     
     bool hasReturnValue() const {
         return returnValue != nullptr;

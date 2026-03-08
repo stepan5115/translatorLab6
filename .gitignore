@@ -4,3 +4,4 @@ grammars/.antlr
 lab6
 *.out
 *.o
+lib

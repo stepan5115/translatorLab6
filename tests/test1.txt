@@ -1,5 +1,6 @@
 // Простая функция без параметров
 void hello() {
+    print(10);
     return;
 }
 
@@ -10,4 +11,4 @@ int add(int a, int b) {
 
 // Вызов функции
 hello();
-add(5, 3);
+print(add(5, 3));

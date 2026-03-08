@@ -1,5 +1,6 @@
 #include "Statement.h"
 #include "Function.h"
+#include "Context.h"
 
 void CallStatement::execute(Context& context) {
     Function* func = context.getFunction(functionName);
@@ -7,5 +8,5 @@ void CallStatement::execute(Context& context) {
         throw std::runtime_error("Функция не найдена: " + functionName);
     }
     
-    func->execute(context, arguments);
+    func->execute(context, functionName, arguments);
 }

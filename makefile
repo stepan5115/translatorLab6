@@ -11,7 +11,11 @@ CXXFLAGS = -Wall -Wextra -std=c++17 -g -I. -Igenerated $(ANTLR_PATH) \
            -Wno-overloaded-virtual -Wno-unused-parameter
 LDFLAGS = -lantlr4-runtime
 TARGET = lab6
-SOURCES = main.cpp
+SOURCES = main.cpp \
+          src/Expression.cpp \
+          src/Function.cpp \
+          src/ReturnStatement.cpp \
+          src/Statement.cpp
 HEADERS = 
 GRAMMAR_FILE = grammars/Lab6Grammar.g4
 ANTLR_JAR = antlr-4.13.2-complete.jar
