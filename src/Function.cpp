@@ -21,6 +21,13 @@ void Function::executeBody(Context& context){
     }
 }
 
+std::pair<Type, std::any> Function::handleReturn(Context& context) {
+    if (returnStmt) {
+        return returnStmt->evaluate(context);
+    }
+    return {VOID, {}};
+}
+
 std::pair<Type, std::any> Function::execute(Context& context, 
                                            const std::vector<std::unique_ptr<Expression>>& args) {
     if (args.size() != parameters.size()) {
@@ -52,15 +59,10 @@ std::pair<Type, std::any> Function::execute(Context& context,
     }
 
     executeBody(context);
-    
-    std::pair<Type, std::any> result = {VOID, {}};
-    bool hasReturn = false;
-    if (returnStmt) {
-        result = returnStmt->evaluate(context);
-        hasReturn = true;
-    }
-    context.popScope();
+    auto result = handleReturn(context);
+    bool hasReturn = returnStmt != nullptr;
 
+    context.popScope();
     if (returnType == VOID) {
         if (hasReturn && result.first != VOID) {
             throw std::runtime_error("Функция '" + name + "' объявлена как void, но вернула значение");
