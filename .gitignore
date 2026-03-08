@@ -1,0 +1,6 @@
+antlr
+generated
+grammars/.antlr
+lab6
+*.out
+*.o

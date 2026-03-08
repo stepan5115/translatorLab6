@@ -1,0 +1,29 @@
+// Функция без возвращаемого значения
+void printMessage() {
+    return;
+}
+
+// Функция с одним параметром
+int square(int n) {
+    return n * n;
+}
+
+// Функция с тремя параметрами
+int max(int a int b int c) {
+    return a + b + c; // Не совсем max, но для теста
+}
+
+// Функция, вызывающая другие функции
+int testFunctions(int val) {
+    square(val);
+    max(1 2 3);
+    return val;
+}
+
+// Точка входа
+void main() {
+    printMessage();
+    square(7);
+    testFunctions(42);
+    return;
+}

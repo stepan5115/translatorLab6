@@ -1,0 +1,17 @@
+int calculate(int x, int y) {
+    return x + y * 2 - 5;
+}
+
+int complex(int a, int b, int c) {
+    return (a + b) * (c - 10) / 2;
+}
+
+int main() {
+    calculate(10, 20);
+    complex(5, 15, 25);
+    
+    // Вложенные вызовы
+    calculate(complex(1, 2, 3), 10);
+    
+    return;
+}

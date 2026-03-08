@@ -1,0 +1,22 @@
+int testOperators(int a int b int c) {
+    return a + b - c * a / b + a % c;
+}
+
+int testAll(int x int y) {
+    return x + y;
+    return x - y;
+    return x * y;
+    return x / y;
+    return x % y;
+}
+
+int complex(int a int b int c int d) {
+    return a + b * c - d / a + b % c * (a + d);
+}
+
+int main() {
+    testOperators(10 3 2);
+    testAll(8 3);
+    complex(1 2 3 4);
+    return 0;
+}

@@ -1,0 +1,21 @@
+// Пустая функция
+void empty() {}
+
+// Функция с return без выражения
+void noReturn() {
+    return;
+}
+
+// Функция с return с выражением
+int one() {
+    return 1;
+}
+
+// Простой вызов
+empty();
+one();
+
+// Вызов с аргументами
+void dummy() {
+    return;
+}
