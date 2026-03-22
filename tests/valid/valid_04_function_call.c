@@ -1,0 +1,9 @@
+int getValue() {
+    return 42;
+}
+
+int main() {
+    return getValue();
+}
+
+print(main());

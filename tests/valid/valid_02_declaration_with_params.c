@@ -1,0 +1,5 @@
+int sum(int a, int b) {
+    return a + b;
+}
+
+sum(-1 * 2, 10 % 4);

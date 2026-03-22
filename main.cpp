@@ -270,6 +270,7 @@ int main(int argc, char** argv) {
             }
         } else {
             std::cout << "  Программа содержит ошибки." << std::endl;
+            return 1;
         }
     } catch (const std::exception& e) {
         std::cerr << "Ошибка: " << e.what() << std::endl;
