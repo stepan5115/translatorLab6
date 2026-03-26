@@ -1,7 +1,10 @@
 antlr
+jre
+antlr4-runtime
 generated
 grammars/.antlr
 lab6
 *.out
 *.o
 lib
+wget-log

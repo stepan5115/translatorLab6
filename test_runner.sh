@@ -12,7 +12,6 @@ echo -e "${CYAN}========================================${NC}"
 echo -e "${CYAN}🔨 Сборка проекта...${NC}"
 echo -e "${CYAN}========================================${NC}"
 
-make clean
 if make all; then
     echo -e "${GREEN}✅ Сборка успешно завершена${NC}\n"
 else
@@ -56,7 +55,7 @@ run_tests() {
             
             echo -ne "${YELLOW}Тест ${total}:${NC} ${test_name} ... "
             
-            output=$(./lab6 "$test_file" 2>&1)
+            output=$(make run INPUT_FILE=$test_file 2>&1)
             exit_code=$?
             
             if [ "$expected_result" = "success" ]; then
